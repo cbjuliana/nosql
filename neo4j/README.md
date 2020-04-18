@@ -33,10 +33,30 @@ MATCH (m:Movie) RETURN m
 ```
 MATCH (m:Movie) WHERE m.released = 2003 RETURN m
 ```
+ou
+
+```
+MATCH (m:Movie {released:2003}) RETURN m
+```
 
 #### Exercise 2.2: View the retrieved results as a table
 
 ```
+MATCH (m:Movie {released:2003}) RETURN m
 ```
+
+#### Exercise 2.3: Query the database for all property keys
+
+```
+CALL db.propertyKeys
+```
+
+#### Exercise 2.4: Retrieve all Movies released in a specific year, returning their titles
+
+```
+MATCH (m: Movie {released: 2006}) RETURN m.title
+```
+
+
 
 
