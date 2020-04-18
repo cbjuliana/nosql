@@ -1,6 +1,6 @@
 # neo4j
 
-#### Exercício 1- Retrieving Nodes 
+#### Exercício 1 Retrieving Nodes 
 
 Coloque os comandos utilizados em cada item a seguir: 
 
