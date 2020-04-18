@@ -69,4 +69,31 @@ MATCH (m: Movie) RETURN m.title, m.released, m.tagline
 MATCH (m:Movie) RETURN m.title AS Title, m.released AS Released, m.tagline AS TagLine
 ```
 
+### Exercício 3 Filtering queries using relationships 
 
+#### Exercise 3.1: Display the schema of the database
+
+```
+CALL db.schema.visualization
+```
+
+#### Exercise 3.2: Retrieve all people who wrote the movie Speed Racer
+
+```
+
+```
+
+#### Exercise 3.3: Retrieve all movies that are connected to the person, Tom Hanks
+
+```
+```
+
+#### Exercise 3.4: Retrieve information about the relationships Tom Hanks had with the set of movies retrieved earlier
+
+```
+```
+
+#### Exercise 3.5: Retrieve information about the roles that Tom Hanks acted in
+
+```
+```
