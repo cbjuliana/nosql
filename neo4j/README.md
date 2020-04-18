@@ -1,6 +1,6 @@
 # neo4j
 
-#### Exercício 1 Retrieving Nodes 
+### Exercício 1 Retrieving Nodes 
 
 #### Exercise 1.1: Retrieve all nodes from the database. 
 
@@ -26,7 +26,7 @@ MATCH (p:Person) RETURN p
 MATCH (m:Movie) RETURN m
 ```
 
-#### Exercício 2 Filtering queries using property values 
+### Exercício 2 Filtering queries using property values 
 
 #### Exercise 2.1: Retrieve all movies that were released in a specific year. 
 
