@@ -2,8 +2,6 @@
 
 #### Exercício 1 Retrieving Nodes 
 
-Coloque os comandos utilizados em cada item a seguir: 
-
 #### Exercise 1.1: Retrieve all nodes from the database. 
 
 ```
@@ -27,3 +25,18 @@ MATCH (p:Person) RETURN p
 ```
 MATCH (m:Movie) RETURN m
 ```
+
+#### Exercício 2 Filtering queries using property values 
+
+#### Exercise 2.1: Retrieve all movies that were released in a specific year. 
+
+```
+MATCH (m:Movie) WHERE m.released = 2003 RETURN m
+```
+
+#### Exercise 2.2: View the retrieved results as a table
+
+```
+```
+
+
