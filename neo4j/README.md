@@ -57,6 +57,16 @@ CALL db.propertyKeys
 MATCH (m: Movie {released: 2006}) RETURN m.title
 ```
 
+#### Exercise 2.5: Display title, released, and tagline values for every Movie node in the graph.
 
+```
+MATCH (m: Movie) RETURN m.title, m.released, m.tagline
+```
+
+#### Exercise 2.6: Display more user-friendly headers in the table 
+
+```
+MATCH (m:Movie) RETURN m.title AS Title, m.released AS Released, m.tagline AS TagLine
+```
 
 
