@@ -121,8 +121,13 @@ WriteResult({ "nInserted" : 1 })
 > db.italians.find( {dog: { $exists: true }}).count()
 3970
 
-
-
+> db.italians.find( {
+... $and: [
+... { cat: { $exists: false }},
+... { dog: { $exists: false }}
+... ]
+... }).count()
+2451
 ```
 
 5 - Liste/Conte todas as pessoas acima de 60 anos que tenham gato 
@@ -151,7 +156,13 @@ WriteResult({ "nInserted" : 1 })
 #### Resposta
 
 ```
-
+db.italians.find( { 
+	$and: [ 
+		{ cat: { $exists: true }}, 
+		{ dog: { $exists: true }}
+	] 
+}).count()
+2383
 ```
 
 8 - Liste todas as pessoas mais novas que seus respectivos gatos
@@ -161,7 +172,7 @@ WriteResult({ "nInserted" : 1 })
 
 ```
 
-9 - Liste as pessoas que tem o mesmo nome que seu bichano (gatou ou cachorro)
+9 - Liste as pessoas que tem o mesmo nome que seu bichano (gato ou cachorro)
 #### Resposta
 
 ```
