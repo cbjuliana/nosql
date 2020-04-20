@@ -99,14 +99,16 @@ WriteResult({ "nInserted" : 1 })
 #### Resposta
 
 ```
-
+> db.italians.find({"age" : {"$gt" : 65}}).count()
+1692
 ```
 
 3 - Identifique todos os jovens (pessoas entre 12 a 18 anos)
 #### Resposta
 
 ```
-
+> db.italians.find({"age" : {"$gte" : 12, "$lte" : 18}}).count()
+887
 ```
 
 4 - Identifique quantas pessoas tem gatos, quantas tem cachorro e quantas não tem nenhum dos dois
