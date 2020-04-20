@@ -1,6 +1,6 @@
 # Mongodb
 
-#### Exercício 1
+### Exercício 1
 
 Insira os seguintes registros no MongoDB e em seguida responda as questões abaixo: 
 
@@ -255,3 +255,85 @@ db.italians.find( {
 ```
 
 ```
+
+### Exercício 3 - Stockbrokers 
+
+1 - Liste as ações com profit acima de 0.5 (limite a 10 o resultado) 
+#### Resposta
+
+```
+
+```
+
+2 - Liste as ações com perdas (limite a 10 novamente) 
+#### Resposta
+
+```
+
+```
+
+3 - Liste as 10 ações mais rentáveis 
+#### Resposta
+
+```
+
+```
+
+4 - Qual foi o setor mais rentável? 
+#### Resposta
+
+```
+
+```
+
+5 - Ordene as ações pelo profit e usando um cursor, liste as ações. 
+#### Resposta
+
+```
+
+```
+
+6 - Renomeie o campo “Profit Margin” para apenas “profit”. 
+#### Resposta
+
+```
+
+```
+
+7 - Agora liste apenas a empresa e seu respectivo resultado 
+#### Resposta
+
+```
+
+```
+
+8 - Analise as ações. É uma bola de cristal na sua mão... Quais as três ações você investiria? 
+#### Resposta
+
+```
+
+```
+
+9 - Liste as ações agrupadas por setor 
+#### Resposta
+
+```
+
+```
+
+### Exercício 3 - Fraude na Enron! 
+
+1 - Liste as pessoas que enviaram e-mails (de forma distinta, ou seja, sem repetir). Quantas pessoas são? 
+#### Resposta
+
+```
+
+```
+
+2 - Contabilize quantos e-mails tem a palavra “fraud” 
+#### Resposta
+
+```
+
+```
+
