@@ -115,6 +115,13 @@ WriteResult({ "nInserted" : 1 })
 #### Resposta
 
 ```
+> db.italians.find( {cat: { $exists: true }}).count()
+5962
+
+> db.italians.find( {dog: { $exists: true }}).count()
+3970
+
+
 
 ```
 
@@ -122,14 +129,22 @@ WriteResult({ "nInserted" : 1 })
 #### Resposta
 
 ```
-
+> db.italians.find({
+... "age" : {"$gt" : 60},
+... cat : { $exists: true }
+... }).count()
+1009
 ```
 
 6 - Liste/Conte todos os jovens com cachorro 
 #### Resposta
 
 ```
-
+> db.italians.find({
+... "age" : {"$gte" : 15, "$lte" : 29},
+...  dog : { $exists: true }
+... }).count()
+736
 ```
 
 7 - Utilizando o $where, liste todas as pessoas que tem gato e cachorro 
