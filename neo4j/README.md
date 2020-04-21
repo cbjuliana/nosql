@@ -26,7 +26,7 @@ MATCH (p:Person) RETURN p
 MATCH (m:Movie) RETURN m
 ```
 
-### Exercício 2 Filtering queries using property values 
+### Exercício 2 - Filtering queries using property values 
 
 #### Exercise 2.1: Retrieve all movies that were released in a specific year. 
 
@@ -69,7 +69,7 @@ MATCH (m: Movie) RETURN m.title, m.released, m.tagline
 MATCH (m:Movie) RETURN m.title AS Title, m.released AS Released, m.tagline AS TagLine
 ```
 
-### Exercício 3 Filtering queries using relationships 
+### Exercício 3 - Filtering queries using relationships 
 
 #### Exercise 3.1: Display the schema of the database
 
@@ -98,7 +98,7 @@ CALL db.schema.visualization
 ```
 ```
 
-### Exercício 4 – Filtering queries using WHERE clause 
+### Exercício 4 - Filtering queries using WHERE clause 
 
 #### Exercise 4.1: Retrieve all movies that Tom Cruise acted in
 
@@ -165,7 +165,7 @@ CALL db.schema.visualization
 ```
 ```
 
-### Exercício 5 – Controlling query processing
+### Exercício 5 - Controlling query processing
 
 #### Exercise 5.1: Retrieve data using multiple MATCH patterns
 
@@ -222,7 +222,7 @@ CALL db.schema.visualization
 ```
 ```
 
-### Exercício 6 – Controlling results returned 
+### Exercício 6 - Controlling results returned 
 
 #### Exercise 6.1: Execute a query that returns duplicate records
 
@@ -254,7 +254,7 @@ CALL db.schema.visualization
 ```
 ```
 
-### Exercício 7 – Working with cypher data 
+### Exercício 7 - Working with cypher data 
 
 #### Exercise 7.1: Collect and use lists
 
@@ -276,7 +276,7 @@ CALL db.schema.visualization
 ```
 ```
 
-### Exercício 8 – Creating nodes 
+### Exercício 8 - Creating nodes 
 
 #### Exercise 8.1: Create a Movie node
 
@@ -368,7 +368,7 @@ CALL db.schema.visualization
 ```
 ```
 
-### Exercício 9 – Creating relationships 
+### Exercício 9 - Creating relationships 
 
 #### Exercise 9.1: Create ACTED_IN relationships
 
@@ -435,7 +435,7 @@ CALL db.schema.visualization
 ```
 ```
 
-### Exercício 10 – Deleting nodes and relationships 
+### Exercício 10 - Deleting nodes and relationships 
 
 #### Exercise 10.1: Delete a relationship
 
