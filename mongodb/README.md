@@ -214,28 +214,39 @@ db.italians.find({"surname" : "Rossi"}).sort({age : -1}).limit(5)
 #### Resposta
 
 ```
-
+> db.italians.insert({"firstname" : "Giuseppe", "surname" : "Garibaldi", "username" : "user9995", "age" : 28, "email" : "garibaldi@gmail.com", "bloodType" : "A+", "id_num" : "468313016241", "registerDate" : ISODate("1991-03-02T14:45:02.059Z"), "ticketNumber" : 2285, "jobs" : [ "Advogado" ], "favFruits" : [ "Morango" ], "movies" : [ { "title" : "Star Wars, Episódio V: O Império Contra-Ataca (1980)", "rating" : 3.28 }, { "title" : "A Lista de Schindler (1993)", "rating" : 0.82 } ], "father" : { "firstname" : "Francesco", "surname" : "Garibaldi", "age" : 60 }, "leao" : { "name" : "Simba", "age" : 2 } })
+WriteResult({ "nInserted" : 1 })
 ```
 
 14 - Infelizmente o Leão comeu o italiano. Remova essa pessoa usando o Id
 #### Resposta
 
 ```
-
+> db.italians.remove({"_id" : ObjectId("5ea72fbc3b71967e96beb313")}, true)
+WriteResult({ "nRemoved" : 1 })
 ```
 
 15 - Passou um ano. Atualize a idade de todos os italianos e dos bichanos em 1
 #### Resposta
 
 ```
-
+> db.italians.update({}, {"$inc": {"age": 1}}, {multi: true});
+WriteResult({ "nMatched" : 10001, "nUpserted" : 0, "nModified" : 10001 })
+> db.italians.update({}, {"$inc": {"cat.age": 1}}, {multi: true});
+WriteResult({ "nMatched" : 10001, "nUpserted" : 0, "nModified" : 10001 })
+> db.italians.update({}, {"$inc": {"dog.age": 1}}, {multi: true});
+WriteResult({ "nMatched" : 10001, "nUpserted" : 0, "nModified" : 10001 })
 ```
 
 16 - O Corona Vírus chegou na Itália e misteriosamente atingiu pessoas somente com gatos e de 66 anos. Remova esses italianos
 #### Resposta
 
 ```
-
+db.italians.remove({
+...   age : 66,
+...   cat : { $exists: true }
+...  }, true)
+WriteResult({ "nRemoved" : 1 })
 ```
 
 17 - Utilizando o framework agregate, liste apenas as pessoas com nomes iguais a sua respectiva mãe e que tenha gato ou cachorro
