@@ -176,28 +176,38 @@ db.italians.find( {
 #### Resposta
 
 ```
-
+db.italians.find({
+  $or:[{$and: [{ cat: { $exists: true }}, { $where: "this.firstname == this.cat.name" }]}, 
+       {$and: [{ dog: { $exists: true }}, { $where: "this.firstname == this.dog.name" }]}
+  ]
+}, 
+{"cat.name": 1, "dog.name": 1, "firstname": 1})
 ```
 
 10 - Projete apenas o nome e sobrenome das pessoas com tipo de sangue de fator RH negativo
 #### Resposta
 
 ```
-
+db.italians.find({bloodType: /-/}, {"firstname": 1, "surname": 1})
 ```
 
 11 - Projete apenas os animais dos italianos. Devem ser listados os animais com nome e idade. Não mostre o identificado do mongo (ObjectId) 
 #### Resposta
 
 ```
-
+db.italians.find({
+  $or:[{$and: [{ cat: { $exists: true }}] }, 
+       {$and: [{ dog: { $exists: true }}] }
+  ]
+}, 
+{"_id": 0, "cat.name": 1, "dog.name": 1})
 ```
 
 12 - Quais são as 5 pessoas mais velhas com sobrenome Rossi? 
 #### Resposta
 
 ```
-
+db.italians.find({"surname" : "Rossi"}).sort({age : -1}).limit(5) 
 ```
 
 13 - Crie um italiano que tenha um leão como animal de estimação. Associe um nome e idade ao bichano 
