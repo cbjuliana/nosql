@@ -283,7 +283,9 @@ WriteResult({ "nRemoved" : 1 })
 #### Resposta
 
 ```
-
+db.stocks.find({
+ "Profit Margin" : {"$gte" : 0.5}
+}).limit(10)
 ```
 
 2 - Liste as ações com perdas (limite a 10 novamente) 
@@ -348,13 +350,15 @@ WriteResult({ "nRemoved" : 1 })
 #### Resposta
 
 ```
-
+> db.enron.distinct('sender').length
+2200
 ```
 
 2 - Contabilize quantos e-mails tem a palavra “fraud” 
 #### Resposta
 
 ```
-
+> db.enron.find({text: /fraud/}).count()
+23
 ```
 
