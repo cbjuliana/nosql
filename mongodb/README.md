@@ -283,9 +283,17 @@ WriteResult({ "nRemoved" : 1 })
 #### Resposta
 
 ```
-db.stocks.find({
- "Profit Margin" : {"$gte" : 0.5}
-}).limit(10)
+> db.stocks.find({  "Profit Margin" : {"$gte" : 0.5} }, {Ticker: 1, _id: 0}).limit(10)
+{ "Ticker" : "AB" }
+{ "Ticker" : "AGNC" }
+{ "Ticker" : "ARCC" }
+{ "Ticker" : "ARI" }
+{ "Ticker" : "ARR" }
+{ "Ticker" : "ATHL" }
+{ "Ticker" : "AYR" }
+{ "Ticker" : "BK" }
+{ "Ticker" : "BLX" }
+{ "Ticker" : "BPO" }
 ```
 
 2 - Liste as ações com perdas (limite a 10 novamente) 
@@ -334,7 +342,8 @@ db.stocks.find({
 #### Resposta
 
 ```
-
+var cursor = db.stocks.find({}, {"Ticker": 1}).sort({"Profit Margin" : 1}); 
+cursor.forEach(function(x) {print(x.Ticker);})
 ```
 
 6 - Renomeie o campo “Profit Margin” para apenas “profit”. 
