@@ -292,7 +292,17 @@ db.stocks.find({
 #### Resposta
 
 ```
-
+> db.stocks.find({"Profit Margin": {"$lt" : 0}}, {"Ticker": 1, _id: 0}).sort({"Profit Margin" : 1}).limit(10)
+{ "Ticker" : "EMIS" }
+{ "Ticker" : "CERP" }
+{ "Ticker" : "GNBT" }
+{ "Ticker" : "PURE" }
+{ "Ticker" : "MRNA" }
+{ "Ticker" : "APPA" }
+{ "Ticker" : "AFFY" }
+{ "Ticker" : "FTBK" }
+{ "Ticker" : "CCGM" }
+{ "Ticker" : "PBIO" }
 ```
 
 3 - Liste as 10 ações mais rentáveis 
