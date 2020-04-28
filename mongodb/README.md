@@ -191,7 +191,7 @@ db.italians.find({
 db.italians.find({bloodType: /-/}, {"firstname": 1, "surname": 1})
 ```
 
-11 - Projete apenas os animais dos italianos. Devem ser listados os animais com nome e idade. Não mostre o identificado do mongo (ObjectId) 
+11 - Projete apenas os animais dos italianos. Devem ser listados os animais com nome e idade. Não mostre o identificador do mongo (ObjectId) 
 #### Resposta
 
 ```
@@ -372,7 +372,7 @@ BPT, CACB e ROYT
 #### Resposta
 
 ```
-
+db.stocks.aggregate([{$group: {_id: {setor:"$Industry"}, total: {$sum: 1}}}])
 ```
 
 ### Exercício 3 - Fraude na Enron! 
