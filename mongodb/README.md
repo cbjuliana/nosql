@@ -299,14 +299,25 @@ db.stocks.find({
 #### Resposta
 
 ```
-
+> db.stocks.find({}, {Ticker : 1, _id : 0}).sort({"Profit Margin" : -1}).limit(10)
+{ "Ticker" : "BPT" }
+{ "Ticker" : "CACB" }
+{ "Ticker" : "ROYT" }
+{ "Ticker" : "NDRO" }
+{ "Ticker" : "WHZ" }
+{ "Ticker" : "MVO" }
+{ "Ticker" : "AGNC" }
+{ "Ticker" : "VOC" }
+{ "Ticker" : "MTR" }
+{ "Ticker" : "OLP" }
 ```
 
 4 - Qual foi o setor mais rentável? 
 #### Resposta
 
 ```
-
+> db.stocks.find({}, {Industry : 1, _id : 0}).sort({"Profit Margin" : -1}).limit(1)
+{ "Industry" : "Oil & Gas Refining & Marketing" }
 ```
 
 5 - Ordene as ações pelo profit e usando um cursor, liste as ações. 
@@ -327,14 +338,14 @@ db.stocks.find({
 #### Resposta
 
 ```
-
+db.stocks.find({}, {Company : 1, "Profit Margin" : 1, _id : 0})
 ```
 
 8 - Analise as ações. É uma bola de cristal na sua mão... Quais as três ações você investiria? 
 #### Resposta
 
 ```
-
+BPT, CACB e ROYT
 ```
 
 9 - Liste as ações agrupadas por setor 
