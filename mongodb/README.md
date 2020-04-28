@@ -350,14 +350,15 @@ cursor.forEach(function(x) {print(x.Ticker);})
 #### Resposta
 
 ```
-
+> db.stocks.updateMany( {}, { $rename: { "Profit Margin": "profit" } } )
+{ "acknowledged" : true, "matchedCount" : 6756, "modifiedCount" : 4302 }
 ```
 
 7 - Agora liste apenas a empresa e seu respectivo resultado 
 #### Resposta
 
 ```
-db.stocks.find({}, {Company : 1, "Profit Margin" : 1, _id : 0})
+db.stocks.find({}, {Company : 1, "profit" : 1, _id : 0})
 ```
 
 8 - Analise as ações. É uma bola de cristal na sua mão... Quais as três ações você investiria? 
