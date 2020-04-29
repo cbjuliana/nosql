@@ -304,31 +304,51 @@ RETURN  m.title, p.name
 #### Exercise 6.1: Execute a query that returns duplicate records
 
 ```
+MATCH (a:Person)-[:ACTED_IN]->(m:Movie)
+WHERE m.released >= 1990 AND m.released < 2000
+RETURN DISTINCT m.released, m.title, collect(a.name)
 ```
 
 #### Exercise 6.2: Modify the query to eliminate duplication
 
 ```
+MATCH (a:Person)-[:ACTED_IN]->(m:Movie)
+WHERE m.released >= 1990 AND m.released < 2000
+RETURN  m.released, collect(m.title), collect(a.name)
 ```
 
 #### Exercise 6.3: Modify the query to eliminate more duplication
 
 ```
+MATCH (a:Person)-[:ACTED_IN]->(m:Movie)
+WHERE m.released >= 1990 AND m.released < 2000
+RETURN  m.released, collect(DISTINCT m.title), collect(a.name)
 ```
 
 #### Exercise 6.4: Sort results returned
 
 ```
+MATCH (a:Person)-[:ACTED_IN]->(m:Movie)
+WHERE m.released >= 1990 AND m.released < 2000
+RETURN  m.released, collect(DISTINCT m.title), collect(a.name)
+ORDER BY m.released DESC
 ```
 
 #### Exercise 6.5: Retrieve the top 5 ratings and their associated movies
 
 ```
+MATCH (:Person)-[r:REVIEWED]->(m:Movie)
+RETURN  m.title AS movie, r.rating AS rating
+ORDER BY r.rating DESC LIMIT 5
 ```
 
 ### Exercise 6.6: Retrieve all actors that have not appeared in more than 3 movies
 
 ```
+MATCH (a:Person)-[:ACTED_IN]->(m:Movie)
+WITH  a,  count(a) AS numMovies, collect(m.title) AS movies
+WHERE numMovies <= 3
+RETURN a.name, movies
 ```
 
 ### Exercício 7 - Working with cypher data 
@@ -336,21 +356,39 @@ RETURN  m.title, p.name
 #### Exercise 7.1: Collect and use lists
 
 ```
+MATCH (a:Person)-[:ACTED_IN]->(m:Movie),
+      (m)<-[:PRODUCED]-(p:Person)
+WITH  m, collect(DISTINCT a.name) AS cast, collect(DISTINCT p.name) AS producers
+RETURN DISTINCT m.title, cast, producers
+ORDER BY size(cast)
 ```
 
 #### Exercise 7.2: Collect a list
 
 ```
+MATCH (p:Person)-[:ACTED_IN]->(m:Movie)
+WITH p, collect(m) AS movies
+WHERE size(movies)  > 5
+RETURN p.name, movies
 ```
 
 #### Exercise 7.3: Unwind a list
 
 ```
+MATCH (p:Person)-[:ACTED_IN]->(m:Movie)
+WITH p, collect(m) AS movies
+WHERE size(movies)  > 5
+WITH p, movies UNWIND movies AS movie
+RETURN p.name, movie.title
 ```
 
 #### Exercise 7.4: Perform a calculation with the date type
 
 ```
+MATCH (a:Person)-[:ACTED_IN]->(m:Movie)
+WHERE a.name = 'Tom Hanks'
+RETURN  m.title, m.released, date().year  - m.released as yearsAgoReleased, m.released  - a.born AS `age of Tom`
+ORDER BY yearsAgoReleased
 ```
 
 ### Exercício 8 - Creating nodes 
