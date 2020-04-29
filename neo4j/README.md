@@ -80,22 +80,25 @@ CALL db.schema.visualization
 #### Exercise 3.2: Retrieve all people who wrote the movie Speed Racer
 
 ```
-
+MATCH (p:Person)-[:WROTE] -> (:Movie {title: 'Speed Racer'}) RETURN p.name
 ```
 
 #### Exercise 3.3: Retrieve all movies that are connected to the person, Tom Hanks
 
 ```
+MATCH (m:Movie) <-- (:Person {name: 'Tom Hanks'}) RETURN m.title
 ```
 
 #### Exercise 3.4: Retrieve information about the relationships Tom Hanks had with the set of movies retrieved earlier
 
 ```
+MATCH (m:Movie)-[rel]-(:Person {name: 'Tom Hanks'}) RETURN m.title, type(rel)
 ```
 
 #### Exercise 3.5: Retrieve information about the roles that Tom Hanks acted in
 
 ```
+MATCH (m:Movie)-[rel:ACTED_IN]-(:Person {name: 'Tom Hanks'}) RETURN m.title, rel.roles
 ```
 
 ### Exercício 4 - Filtering queries using WHERE clause 
