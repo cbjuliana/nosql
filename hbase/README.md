@@ -37,21 +37,29 @@ put 'italians', '12', 'professional-data:years' , '8'
 #### 2. Adicione o controle de 5 versões na tabela de dados pessoais. 
 
 ```
+alter 'italians', NAME => 'personal-data', VERSIONS => 5
 ```
 
 #### 3. Faça 5 alterações em um dos italianos; 
 
 ```
+put 'italians', '12', 'personal-data:name', 'Julio Cesar Batista'
+put 'italians', '12', 'personal-data:city', 'Veneza'
+put 'italians', '12', 'professional-data:role', 'Data Scientist'
+put 'italians', '12', 'professional-data:salary', '3000'
+put 'italians', '12', 'professional-data:years' , '9'
 ```
 
 #### 4. Com o operador get, verifique como o HBase armazenou o histórico.
 
 ```
+get 'italians', '12',{COLUMN => 'personal-data:city', VERSIONS => 5}
 ```
 
 #### 5. Utilize o scan para mostrar apenas o nome e profissão dos italianos.
 
 ```
+scan 'italians', {COLUMNS => ['personal-data:name', 'professional-data:role']}
 ```
 
 #### 6.  Apague os italianos com row id ímpar 
