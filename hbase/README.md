@@ -70,11 +70,13 @@ scan 'italians', {COLUMNS => ['personal-data:name', 'professional-data:role']}
 #### 7. Crie um contador de idade 55 para o italiano de row id 5 
 
 ```
+put 'italians', '5', 'personal-data:yearsOld',  '55'
 ```
 
 #### 8. Incremente a idade do italiano em 1 
 
 ```
+incr 'italians', '5', 'personal-data:yearsOld'
 ```
 
 ### Exercício 3
