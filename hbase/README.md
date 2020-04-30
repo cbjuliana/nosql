@@ -68,5 +68,37 @@ put 'italians', '12', 'professional-data:years' , '8'
 
 ```
 ```
+
+### Exercício 3
+
+#### 1. Quantidade de gatos e cachorros na amostra 
+
+```
+```
+
+#### 2. Média de gatos e cachorros na população 
+
+```
+```
+
+#### 3. Quantidade de pais e mães  
+
+```
+```
+
+#### 4. Média de pais e mães  
+
+```
+```
+
+#### 5. Média de frutas e filmes por italiano 
+
+```
+```
+
+#### 6. Salário médio dos italianos  
+
+```
+```
  
  
