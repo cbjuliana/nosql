@@ -79,6 +79,8 @@ public class Redinsgo {
 
 							System.out.println(
 									"User" + i + " fez BINGOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO!!!!!!!!!");
+									
+							break;
 
 						}
 
